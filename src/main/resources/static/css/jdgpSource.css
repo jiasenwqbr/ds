@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*插件基础样式*/
+@import "../static/angularjs-pagination-master/src/ng-pagination-new2.css";
+@import "../static/ngDialog-master/css/ngDialog.css";
+@import "../static/ngDialog-master/css/ngDialog-theme-default.css";
+@import "../static/ngDialog-master/css/ngDialog-theme-plain.min.css";
+@import "../static/font-awesome-4.5.0/css/font-awesome.css";
+@import "../static/angular-tree-control-master/css/tree-control.css";
+@import "../static/angular-tree-control-master/css/tree-control-attribute.css";
+@import "../static/angular-cron-jobs-master/dist/angular-cron-jobs.css";
+
+/*项目样式*/
+@import "common/common.css";
+@import "common/svgMap.css";
+@import "common/home.css";
+@import "common/tableTreeDIY.css";
+@import "common/shouye.css";
+@import "exchange/exchange.css";
+@import "dataQuality/dataQuality.css";
+@import "dataQuality/dataQSettingDetail.css";
+

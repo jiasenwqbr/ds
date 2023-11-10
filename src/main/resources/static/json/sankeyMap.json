@@ -1,0 +1,24 @@
+{"nodes": [
+      {"name": "数据库A","itemStyle":{"normal":{"color":"#3CAAFA"}},"nodeType":"清洗池各委办局库","column":["法人ID","法人姓名","法人类型编码","组织机构代码"]},
+      {"name": "数据库B","itemStyle":{"normal":{"color":"#3CAAFA"}},"nodeType":"清洗池各委办局库","column":["组织机构ID","组织机构代码","组织机构类型","企业名称","企业注册号"]},
+	  {"name": "数据库C","itemStyle":{"normal":{"color":"#3CAAFA"}},"nodeType":"清洗池各委办局库","column":["法人ID","法人姓名","法人类型编码","组织机构代码"]},
+	  {"name": "数据库D","itemStyle":{"normal":{"color":"#3CAAFA"}},"nodeType":"清洗池各委办局库","column":["法人ID","法人姓名","法人类型编码","组织机构代码"]},
+
+	  {"name": "法人库","itemStyle":{"normal":{"color":"#78C940"}},"nodeType":"数据清洗","column":["法人姓名","法人类型编码","组织机构代码","组织机构类型","企业名称","企业注册号"]},
+
+	  {"name": "工商局库","itemStyle":{"normal":{"color":"#78C940"}},"nodeType":"清洗池各委办局库","column":["法人姓名","企业名称"]},
+	  {"name": "民政局库","itemStyle":{"normal":{"color":"#78C940"}},"nodeType":"清洗池各委办局库","column":["法人姓名","企业名称"]},
+	  {"name": "编办库","itemStyle":{"normal":{"color":"#78C940"}},"nodeType":"清洗池各委办局库","column":["法人姓名","企业名称"]},
+	  {"name": "市场监督库","itemStyle":{"normal":{"color":"#78C940"}},"nodeType":"清洗池各委办局库","column":["法人姓名","企业名称"]}
+],
+   "links": [
+	   {"source": "数据库A", "target": "法人库", "value": 5,"column":["法人ID","法人姓名","法人类型编码","组织机构代码"]},
+	   {"source": "数据库B", "target": "法人库", "value": 5,"column":["组织机构ID","组织机构代码","组织机构类型","企业名称","企业注册号"]},
+	   {"source": "数据库C", "target": "法人库", "value": 5,"column":["法人ID","法人姓名","法人类型编码","组织机构代码"]},
+	   {"source": "数据库D", "target": "法人库", "value": 5,"column":["法人姓名","法人类型编码","组织机构代码","组织机构类型","企业名称","企业注册号"]},
+	   {"source": "法人库", "target": "工商局库", "value": 7,"column":["法人姓名","企业名称"]},
+	   {"source": "法人库", "target": "民政局库", "value": 7,"column":["法人姓名","企业名称"]},
+	   {"source": "法人库", "target": "编办库", "value": 7,"column":["法人姓名","企业名称"]},
+	   {"source": "法人库", "target": "市场监督库", "value": 7,"column":["法人姓名","企业名称"]}
+
+   ]}

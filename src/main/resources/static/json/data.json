@@ -1,0 +1,32 @@
+[{
+  "id":"1",
+  "dsName":"节点1",
+  "url":"192.168.1.1",
+  "type":"1",
+  "userName":"live",
+  "passWord":"live"
+},
+  {
+    "id":"2",
+    "dsName":"节点2",
+    "url":"192.168.1.1",
+    "type":"1",
+    "userName":"live",
+    "passWord":"live"
+  },
+  {
+    "id":"3",
+    "dsName":"节点3",
+    "url":"192.168.1.1",
+    "type":"1",
+    "userName":"live",
+    "passWord":"live"
+  },
+  {
+    "id":"4",
+    "dsName":"节点4",
+    "url":"192.168.1.1",
+    "type":"1",
+    "userName":"live",
+    "passWord":"live"
+  }]

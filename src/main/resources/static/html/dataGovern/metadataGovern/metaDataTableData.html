@@ -1,0 +1,41 @@
+<div class="bigDiv" ng-controller="metadataMapController" ng-init="queryTableData()">
+    <div class="bigTitle color_black">
+        <p><i class="fa fa-circle"></i>浏览数据</p>
+        <span class="jobTaskBack" ng-click="returnBack()"><i style="border: 0" class="fa fa-mail-reply"></i>返回</span>
+    </div>
+    <!--<div class="bigTitle color_black">
+        <p><i class="fa fa-circle"></i>公共信息库查看</p>
+    </div>-->
+    <div class="hSpilt_bottom"  style="zoom: 1;overflow: auto;padding-top: 10px;">
+        <!--<div class = "vSpilt_left" style="text-align: left;border-radius: 3px;margin-right: 1%;height: 435px;overflow: auto;"ng-controller="dataBaseTreeController">
+            <loading is-loading="isLoading"></loading>
+            <databasetree></databasetree>
+        </div>-->
+        <!--结构树结束-->
+        <!--列表-->
+        <div  class = "vSpilt_right"style="border-radius: 3px;width:100%;min-height: 435px;position: relative;">
+            <p class="color_Lblue">{{selectTableName}}表</p>
+
+            <div class="inputDiv">
+                <input type="text" value="" ng-model="columnValue" placeholder="列值">
+
+                <button class="fa fa-search" ng-click="queryTableData()"></button>
+            </div>
+            <select class="selectBorderBlue"  ng-model="columnName" >
+                <option value="">列名称</option>
+                <option ng-repeat="col in columns" value="{{col}}" ng-if="col!='rowIndex'">{{col}}</option>
+            </select>
+            <hr/>
+            <div class="bigListDiv" style="clear:both;overflow-x: auto;overflow-y: hidden">
+                <jdgp-data-grid columns="columncomments" values="values" c1="currentPage" c2="pageSize">
+                </jdgp-data-grid>
+
+                <div class="pager" style="position:absolute;left:2%;bottom: 15px;">
+                    <pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange()"></pager>
+                </div>
+            </div>
+
+        </div>
+        <!--列表结束-->
+    </div>
+</div>

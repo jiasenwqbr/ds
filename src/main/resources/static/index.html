@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="jdgpApp"><!--lang="zh" -->
+<head>
+    <meta charset="UTF-8">
+    <title>公共信息库管理平台</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <meta name="renderer" content="ie-stand">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="大数据,治理">
+    <meta name="description" content="数据管理">
+
+
+    <!--项目样式-->
+    <link href="css/jdgpSource.css" type="text/css" rel="stylesheet"/>
+    <link href="static/dateTimePicker/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <!--基础框架JS-->
+    <script src="static/jquery/jquery-1.9.1.min.js"></script>
+    <!--<script src="static/Snap.svg-0.4.1/snap.svg-min.js"></script>-->
+    <script src="static/angular/js/angular.min.js"></script>
+    <script src="static/angular/js/angular-ui-router.js"></script>
+    <script src="static/angular/js/angular-resource.min.js"></script>
+    <script src="static/angularjs-pagination-master/src/ng-pagination-new.js"></script>
+    <script src="static/ngDialog-master/js/ngDialog.min.js"></script>
+    <script src="static/dateTimePicker/jquery.datetimepicker.full.js"></script>
+    <script src="static/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+    <!--引入定时表达式插件-->
+    <script src="static/angular-cron-jobs-master/dist/angular-cron-jobs.js" ></script>
+    <script src="static/angular-tree-control-master/angular-tree-control.js"></script>
+
+
+    <!--路由-->
+    <script src="js/router.js"></script>
+
+    <!--公用Service-->
+    <script src="js/comServices/jdgpService.js"></script>
+
+    <!--公用Directive-->
+    <script src="js/comDirective/jdgpDirective.js"></script>
+    <script src="js/comDirective/cdglTreeDirective.js"></script>
+    <script src="js/comDirective/svgMapDirective.js"></script>
+
+    <!--各模块Controller-->
+    <script src="js/moduleJs/headMenu/homeController.js"></script>
+    <script src="js/moduleJs/dataGovern/metadataGovernController.js"></script>
+    <script src="js/moduleJs/dataGovern/dataBaseTableController.js"></script>
+</head>
+<body class="bg_color_LGrey">
+    <div style="width:100%;height: 100%;" ui-view=""></div>
+</body>
+</html>

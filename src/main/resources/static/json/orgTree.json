@@ -1,0 +1,52 @@
+[
+  {
+    "orgId":"root",
+    "sort":"1",
+    "target":"0",
+    "parOrgId":"root",
+    "orgName" : "国税局",
+    "orgFullName":"国税局全称",
+    "orgAddress": "地址1",
+    "contactPerson": "赵毅"
+  },
+  {
+    "orgId":"org1",
+    "sort":"2",
+    "target":"0_21_final",
+    "parOrgId":"root",
+    "orgName" : "科室1",
+    "orgFullName":"科室1",
+    "orgAddress": "地址:科室1",
+    "contactPerson": "赵四"
+  },
+  {
+    "orgId":"root2",
+    "sort":"1",
+    "target":"1",
+    "parOrgId":"root2",
+    "orgName" : "国电",
+    "orgFullName":"国家电网",
+    "orgAddress": "地址1",
+    "contactPerson": "小A"
+  },
+  {
+    "orgId":"org2",
+    "sort":"2",
+    "target":"1_22_final",
+    "parOrgId":"root2",
+    "orgName" : "科室2",
+    "orgFullName":"科室2C",
+    "orgAddress": "地址:科室2",
+    "contactPerson": "小B"
+  },
+  {
+    "orgId":"org3",
+    "sort":"2",
+    "target":"1_21_final",
+    "parOrgId":"root2",
+    "orgName" : "科室C",
+    "orgFullName":"科室CC",
+    "orgAddress": "地址:科室C",
+    "contactPerson": "小C"
+  }
+]

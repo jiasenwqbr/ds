@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "jobName": "法人库组织机构代码检查",
+    "jobDesc": "用于检查法人库组织机构代码是否符合要求",
+    "serviceId": "testJob",
+    "runParams": "组织机构代码",
+    "cronExpression": "2016-12-05 12:40:00",
+    "triggerTime": "每日00:00:00",
+    "jobStatus": "1",
+    "runStatus": "3",
+    "createTime": "2016-12-05 12:00:00"
+  }
+]

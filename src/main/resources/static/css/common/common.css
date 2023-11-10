@@ -1,0 +1,1097 @@
+@charset "UTF-8";
+body,html,div,img,h1,p,span,ul,li,button,h1,h2,h3,h4,h5,h6,a,button,input,table,thead,tbody,tr,td,select,option{
+    margin:0px;
+    padding:0px;
+    font-family: "Microsoft YaHei";
+}
+img,button,input,select,option,textarea{
+    border: 0px;
+    outline: none;
+    font-family: "Microsoft YaHei";
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+    font-family: "Microsoft YaHei";
+}
+ul{list-style:none;font-family: "Microsoft YaHei";}
+a{outline:none;text-decoration:none;font-family: "Microsoft YaHei";}
+h1,h2,h3,h4,h5,h6{font-weight:normal;font-family: "Microsoft YaHei";}
+
+body,html{
+    width:100%;
+    min-height:100%;
+    overflow: hidden;
+}
+
+.color_green{
+    color:#2ADEB9;
+}
+
+.color_red{
+    color:#0CABE3;
+}
+
+.color_orange{
+    color:#0CABE3;
+}
+
+.color_LLLblue{
+    color: #0cabe3;
+}
+
+.color_blue{
+    color:#036EB8;
+}
+
+.color_Lblue{
+    color: #68a6f6;
+}
+
+.color_LLblue{
+    color: #4b8ada;
+}
+
+.color_black{
+    color:#666666;
+}
+
+.color_Lblack{
+    color:#737172;
+}
+
+.color_white{
+    color: #ffffff;
+}
+
+.color_grey{
+    color: #b5b5b7;
+}
+
+.bg_color_blue{
+    background-color: #036EB8;
+}
+
+.bg_color__Lblue{
+    background-color: #1396ff;
+}
+.bg_color_LLblue{
+    background-color: rgba(177,222,252,0.3);
+}
+
+.bg_color_LLLblue{
+    background-color: #eef3f6;
+}
+
+.bg_color_LGrey{
+    background-color: #f9f9f9;
+}
+
+.bg_color_Grey{
+    background-color: #f2f2f2;
+}
+
+.bg_color_LPink{
+    background-color: #fefaf9;
+}
+
+.displayN{
+    display: none;
+ }
+ .displayB{
+     display: inline-block;
+  }
+
+.clearB{
+    clear: both;
+}
+
+button.smallOrange_botton{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button.smallBlue_botton{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button.smallGreen_botton{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button.smallRed_botton{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button.smallGrey_botton{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #e4e4e4;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+button.bigBlue_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+button.bigLBlue_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 23px;
+}
+
+
+button.borderGery_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    margin-left: 23px;
+    color: #dcdcdc;
+    background: none;
+    border: 1px solid #dcdcdc;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+button.borderGery_botton:hover{
+    border: 1px solid #0CABE3;
+    color:#0CABE3;
+}
+
+button.borderBlue_botton{
+    width: auto;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+    border: 1px solid #0CABE3;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    background:none ;
+    color:#0CABE3;
+    line-height: 30px;
+    text-align: center;
+}
+
+button.bigOrange_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 23px;
+}
+
+button.bigOrange_botton > i{
+    border-radius: 30px;
+    padding:1px 2px 0px;
+    border: 1px solid #ffffff;
+    font-size: 11px;
+}
+
+button.bigGreen_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 23px;
+}
+
+button.bigGreen_botton > i{
+    border-radius: 30px;
+    padding:1px 2px 0px;
+    border: 1px solid #ffffff;
+    font-size: 11px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+button.bigRed_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 23px;
+}
+
+button.bigRed_botton > i{
+    border-radius: 30px;
+    padding:1px 2px 0px;
+    border: 1px solid #ffffff;
+    font-size: 11px;
+}
+
+button.bigGrey_botton{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #e4e4e4;
+    border: none;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 255px;
+}
+
+#systemSearch button.long_botton{
+    width: 12%;
+}
+
+#systemSearch button.long_botton:hover{
+    width: 12%;
+}
+
+
+#subscriptionSearch  button.long_botton{
+     width: 10%;
+ }
+
+#subscriptionSearch  button.long_botton:hover{
+    width: 10%;
+}
+
+/*公共布局*/
+  /*列表查询样式*/
+ .bigTitle{
+     margin: 1% 1% 0 0%;
+     text-indent: 16px;
+     height: 40px;
+     line-height: 25px;
+     width: 100%;
+     font-size: 18px;
+     /*font-weight: bold;*/
+     text-align: left;
+     letter-spacing: 2px;
+     border-bottom: 1px solid #e7f1f5;
+}
+.bigTitle p{
+    color: #0cabe3;
+    display: inline;
+}
+
+.bigTitle p i{
+    font-size: 12px;
+    text-shadow: 0px 0px 15px rgba(12,171,227,1);
+    margin-right: 15px;
+    text-indent: 10px;
+    vertical-align: middle;
+}
+
+.bigTitle span{
+    float: right;
+    color: #0581DE;
+     font-size: 12px;
+     line-height: 40px;
+     cursor: pointer;
+    margin-right: 10px;
+ }
+
+.bigTitle span i{
+    float: left;
+    border-radius: 30px;
+    border: 1px solid #0581DE;
+    font-size: 15px;
+    margin-right: 6px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-indent: 6px;
+
+
+}
+
+.bigDiv{
+    /* min-height: 94%; */
+    height:100%;
+    width: 100%;
+/*     margin: 1.5% 1%; */
+    padding: 0;
+    background-color: #ffffff;
+    /* box-shadow: 1px 1px 15px #BBBBBB; */
+    border: 1px solid #e7f1f5;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.bigDiv .bigSearchDiv{
+    width: 100%;
+    text-align: left;
+    line-height: 60px;
+}
+
+.bigDiv .bigSearchDiv .selectBorderBlue{
+    margin-right: 15px;
+    height: 26px;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #939ba7;
+    border: 1px #d9e0e7 solid;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.bigDiv .bigSearchDiv .p_tit{
+    text-indent: 1em;
+    line-height: 32px;
+    text-align: left;
+    font-size: 15px;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+}
+
+.bigDiv  div.inputDiv{
+    width:19.6%;
+    height: 26px;
+    /*background-color: #e6e6e6;*/
+    border: 1px solid #d9e0e7;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-top:20px;
+    margin-right:1%;
+}
+
+.bigDiv  div.inputDiv > input{
+    clear: both;
+    width:80%;
+    height: 20px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    background: none;
+    border: 0px;
+    outline: none;
+    position: absolute;
+    top:2px;
+    left:7%;
+    color: #939ba7;
+}
+
+.bigDiv  div.inputDiv > button{
+    border: 0px;
+    background: 0px;
+    color: #999999;
+    position: absolute;
+    top:5px;
+    right:5%;
+    cursor: pointer;
+    outline: none;
+}
+
+.bigDiv .bigSearchDiv > button{
+   margin-left: 0.5%;
+}
+
+.bigDiv .bigSearchDiv > button.bigFloatR{
+    float: right;
+    margin: 20px 0;
+    margin-right: 2%;
+}
+
+.bigDiv .bigSearchDiv > button.borderBlue_botton:hover{
+    width: 7.5%;
+    height: 26px;
+    padding: 2px 0px 10px 0px;
+    font-size: 16px;
+    font-family: "Microsoft Yahei";
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    background-color: #68a6f6;
+    color:#ffffff;
+    font-weight: bold;
+}
+
+.bigDiv .bigSearchDiv > button:first-child{
+    margin-left: 2%;
+}
+
+
+hr{
+    height: 1px;
+    border: 0px;
+    width:100%;
+    background-color: #DADADA;
+
+}
+
+.bigDiv .bigListDiv{
+    width: 96%;
+    margin: 1% 2%;
+    padding-bottom: 50px;
+}
+
+.bigDiv .bigListDiv .treeDiv{
+    width:23%;
+    margin-right: 1%;
+    padding: 10px 1%;
+    background-color: #F2F2F2;
+}
+
+.bigDiv .bigListDiv  table.bigTable{
+    width: 100%;
+    background: none;
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout:fixed;
+    border: 1px solid #d9e0e7;
+}
+
+.bigDiv .bigListDiv  table.bigTable thead tr{
+    background: #68a6f6;
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #d9e0e7;
+}
+
+.bigDiv .bigListDiv  table.bigTable thead tr td{
+    background: #157acf;
+    line-height: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Microsoft Yahei";
+    border: 0px;
+    color: #ffffff;
+    /*font-weight: bold;*/
+    text-align: center;
+}
+
+.bigDiv .bigListDiv  table.bigTable thead tr td > button.ordered{
+    height: 20px;
+    width: 20px;
+    outline: none;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr{
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid #d9e0e7;
+}
+
+
+.bigDiv .bigListDiv  table.bigTable tbody tr td{
+    line-height: 35px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    border: 0px;
+    /*color: #627899;*/
+    text-align: center;
+    white-space:nowrap;
+    overflow:hidden;
+    word-break:keep-all;
+    text-overflow:ellipsis;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr td > a{
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    cursor: pointer;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr td > a:hover{
+    font-weight: bold;
+}
+
+
+.bigDiv .bigListDiv  table.bigTable tbody tr td span.red{
+    color: #FF0000;
+}
+
+
+
+.bigDiv .bigListDiv  table.bigTable tbody tr.odd{
+    background: #ffffff;
+ }
+
+.bigDiv .bigListDiv  table.bigTable tbody tr.odd td{
+    background: #ffffff;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr.even{
+    background:#ffffff;/*#eceff3*/
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr.even td{
+    background:#ffffff;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr:hover{
+    background:#eceff3;
+}
+
+.bigDiv .bigListDiv  table.bigTable tbody tr:hover td{
+    background:#eceff3;
+}
+
+
+
+.bigDiv .jobTaskexchangeDetail{
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.bigDiv .jobTaskTitle{
+    font-size: 15px;
+    color: #666666;
+    line-height:50px;
+    text-align: left;
+}
+.bigDiv .jobTaskTitle i{
+    font-size: 10px;
+    margin-right: 5px;
+}
+
+.bigDiv .jobTaskTitle button{
+    width: auto;
+    padding: 0px 20px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 30px;
+    float: right;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.bigDiv .jobTaskBack{
+    float: right;
+    cursor: pointer;
+}
+
+.bigDiv .jobTaskTitle .jobTaskBack i{
+    font-size: 15px;
+}
+
+.bigDiv table.jobTaskTableD{
+    width: 100%;
+    background: none;
+    border-collapse:collapse;
+    border-spacing:0;
+    table-layout:fixed;
+    border-top: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+}
+
+.bigDiv table.jobTaskTableD tr{
+    height:40px;
+    border-bottom: 1px solid #dcdcdc;
+    background: #ffffff;
+}
+
+.bigDiv table.jobTaskTableD tr td{
+    border-right: 1px solid #dcdcdc;
+    background: #ffffff;
+    line-height:40px;
+    text-align: left;
+    text-indent: 5px;
+    color:#666666;
+    font-size: 15px;
+}
+
+.bigDiv table.jobTaskTableD tr td input[type='text']{
+    height: 26px;
+    width: 90%;
+    margin-bottom: 5px;
+    color: #999999;
+    border: 1px #d9e0e7 solid;
+    font-size: 15px;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 3px;
+}
+
+.checkBoxDIY{
+    border: 0px;
+    width:15px;
+    height:15px;
+    background-color:transparent;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkBoxDIYNotC_all{
+    background-image: url("../../img/u24_all.png");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.checkBoxDIYNotC{
+    background-image: url("../../img/u24.png");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.checkBoxDIYC_all{
+    background-image: url("../../img/u26_all.png");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.checkBoxDIYC{
+    background-image: url("../../img/u26.png");
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.jdgpBoxDetail{
+    position: absolute;
+    width:50%;
+    left:25%;
+    top:15%;
+    padding-bottom: 1px;
+    background-color: #F2F2F2;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.149019607843137);
+}
+
+.jdgpBoxDetail .jdgpBoxTitle{
+    width: 100%;
+    height:30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: left;
+    text-indent: 2%;
+    background-color: #0581DE;
+}
+.jdgpBoxDetail .jdgpBoxTitle i{
+    float: right;
+    margin-right: 2%;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.jdgpBoxDetail .jdgpBoxComment{
+    width: 100%;
+    padding: 10px 3%;
+    text-align: center;
+    background-color: #F2F2F2;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal{
+    width: 90%;
+    border: 0px;
+    margin-left: 5%;
+}
+
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableSpan{
+    width: 100%;
+    height: 30px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableSpan td{
+    line-height: 40px;
+    text-align: left;
+    font-size: 14px;
+    color: #7c7c7c;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableInput{
+    width: 100%;
+    height: 30px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableInput td{
+    line-height: 30px;
+    text-align: left;
+    font-size: 14px;
+    color: #7c7c7c;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableInput td span{
+    color:#0581DE;
+    font-size: 14px;
+
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableHead{
+    width: 100%;
+    background-color: #68a6f6;
+    color: #ffffff;
+    border: 1px solid #d9e0e7;
+    border-bottom: 0;
+    height: 30px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableHead th{
+    background-color: #68a6f6;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableItems{
+    background: none;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #d9e0e7;
+    border-bottom: 0;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableItems:last-child{
+    border-bottom: 1px solid #d9e0e7;
+}
+
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr.jdgpTableItems th{
+    font-size: 14px;
+    color: #627899;
+    text-align: center;
+    font-weight: normal;
+}
+
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr input[type='text']{
+    width:80%;
+    height: 30px;
+    background-color: #ffffff;
+    color: #7c7c7c;
+    font-size: 14px;
+}
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr textarea{
+    width: 100%;
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #ffffff;
+    color: #7c7c7c;
+    font-size: 14px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr select{
+    width:80%;
+    height: 30px;
+    background-color: #ffffff;
+    color: #7c7c7c;
+    font-size: 14px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr button{
+    height: 26px;
+    padding: 2px 10px 10px 10px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #0581DE;
+    color: #0581DE;
+    margin-right: 10px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr  a{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.jdgpBoxDetail .jdgpBoxComment table.jdgpTableNormal tr a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.divChecked {
+    border:0px solid #000;
+	width:10%;
+	height:30px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 3px;
+	font-size: 14px;
+	color:#FFFFFF;
+	cursor: pointer;
+	border-radius: 14px;
+	background-color:#1296FF;
+	float:left;
+}
+.divUnChecked {
+    border:1px solid #000;
+    width:10%;
+    height:26px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 3px;
+    font-size: 14px;
+    color:#9E9E9E;
+    float:left;
+    border-radius: 14px;
+    border-color:#9E9E9E;
+}
+.divUnCheckedHover {
+    border:1px solid #000;
+    width:10%;
+    height:26px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 3px;
+    font-size: 14px;
+    color:#0099FF;
+    cursor: pointer;
+    float:left;
+    border-radius: 14px;
+    border-color:#0099FF;
+}
+.vSpilt_left{
+    width:25%;
+    height: 335px;
+    margin-bottom: 10px;
+    margin-left: 1%;
+    margin-right: 1%;
+    float:left;
+    background-color:#F2F2F2;
+    border-radius: 3px;
+    overflow: auto;
+}
+.vSpilt_right{
+    width: 71.8%;
+    min-height: 335px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    float:left;
+    background-color:#F2F2F2;
+    border-radius: 3px;
+}
+.hSpilt_bottom{
+    width: 100%;
+    min-height: 70%;
+    text-align:center;
+    zoom: 1;
+    /*overflow: auto;*/
+}
+
+.vSpilt_right  > p{
+    font-size: 14px;
+    /*line-height: 40px;*/
+    text-align: left;
+    /*text-indent: 2%;*/
+    float: left;
+    margin-top: 16px;
+}
+.tree-light span{
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.vSpilt_right  div.inputDiv {
+    width: 190px;
+    height: 26px;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-right: 2%;
+    margin-top: 10px;
+}
+
+.vSpilt_right  select {
+    width: 190px;
+    height: 26px;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: #939ba7;
+    font-size: 14px;
+}
+
+.vSpilt_right  div.inputDiv > input {
+      clear: both;
+      width: 80%;
+      height: 20px;
+      font-size: 14px;
+      font-family: "Microsoft Yahei";
+      background: none;
+      border: 0px;
+      outline: none;
+      position: absolute;
+      top: 2px;
+      left: 7%;
+    color: #939ba7;
+  }
+
+.vSpilt_right  div.inputDiv > button {
+    border: 0px;
+    background: 0px;
+    color: #999999;
+    position: absolute;
+    top: 5px;
+    right: 5%;
+    cursor: pointer;
+    outline: none;
+}
+
+.vSpilt_right hr{
+    margin: 8px 1%;
+    width: 98%;
+}
+
+
+.bigDiv  div.inputNameDiv{
+    width:19.6%;
+    height: 26px;
+    /*background-color: #e6e6e6;*/
+    border: 1px solid #d9e0e7;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-top:20px;
+    margin-right:1%;
+}
+
+.bigDiv  div.inputNameDiv > input{
+    clear: both;
+    width:80%;
+    height: 20px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    background: none;
+    border: 0px;
+    outline: none;
+    position: absolute;
+    top:2px;
+    left:7%;
+    color: #939ba7;
+}
+
+.bigDiv  div.inputNameDiv > button{
+    border: 0px;
+    background: 0px;
+    color: #999999;
+    position: absolute;
+    top:5px;
+    right:5%;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+.menu_head{width:120px;border-radius:15px;background-color:#0CABE3;height:32px;line-height:32px;text-align:center;font-size:16px;color:#525252;cursor:pointer;border:1px solid #e1e1e1;position:relative;margin:0px;color: #fff;}
+.menu_body{display:none;width:120px;height:auto;overflow:hidden;line-height:38px;border-left:1px solid #e1e1e1;background:#fff;border-right:1px solid #e1e1e1;}
+.menu_body a{font-size:12px;z-index:9999;display:block;width:100%;height:38px;line-height:38px;text-align:center;color:#777777;background:#fff;text-decoration:none;border-bottom:1px solid #e1e1e1;}
+.menu_body a:hover{text-decoration:none;background-color:#0CABE3;}
+.menu_list{z-index:9999;width: 100px;position: absolute;right: 50px;top:62px;}
+
+/*滚动条样式设置  */
+::-webkit-scrollbar{
+	width:8px;
+	height:8px;
+}
+::-webkit-scrollbar-thumb{
+	border-radius:8px;
+	background-color:#d0b8b8;
+}

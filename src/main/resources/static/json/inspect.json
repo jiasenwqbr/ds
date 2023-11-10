@@ -1,0 +1,29 @@
+[
+  {
+    "id": "001",
+    "dbName": "employees1",
+    "tableName": "title1",
+    "inspectRule": "规则表达式1",
+    "creatTime": "2016-12-05 12:40:00",
+    "inspectTime": "2016-12-05 12:00:00",
+    "status": "1"
+  },
+  {
+    "id": "002",
+    "dbName": "employees1",
+    "tableName": "title2",
+    "inspectRule": "规则表达式2",
+    "creatTime": "2016-12-05 12:40:00",
+    "inspectTime": "2016-12-05 12:00:00",
+    "status": "1"
+  },
+  {
+    "id": "003",
+    "dbName": "employees1",
+    "tableName": "title3",
+    "inspectRule": "规则表达式3",
+    "creatTime": "2016-12-05 12:40:00",
+    "inspectTime": "2016-12-05 12:00:00",
+    "status": "1"
+  }
+]

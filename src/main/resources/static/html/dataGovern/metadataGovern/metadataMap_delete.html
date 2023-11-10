@@ -1,0 +1,16 @@
+<div class="jdgpBoxDetail" ng-controller="metadataMapDeleteController" style="width:20%;left:40%;top:35%">
+    <div class="jdgpBoxTitle">
+        <span>提示信息</span>
+        <i class="color_white ngdialog-close"></i>
+    </div>
+    <div class="jdgpBoxComment" style="background-color:#ffffff">
+        <p ng-show="deleteMetaDataObj.type=='1'" style="color: #333333;font-size: 14px;line-height: 50px;text-align: center">确定要删除本类别吗？</p>
+        <p ng-show="deleteMetaDataObj.type=='2'" style="color: #333333;font-size: 14px;line-height: 50px;text-align: center">确定要删除本数据库吗？</p>
+        <p ng-show="deleteMetaDataObj.type=='3'" style="color: #333333;font-size: 14px;line-height: 50px;text-align: center">确定要删除本表吗？</p>
+        <p ng-show="deleteMetaDataObj.type=='4'" style="color: #333333;font-size: 14px;line-height: 50px;text-align: center">确定要删除本字段吗？</p>
+        <p ng-show="deleteMetaDataObj.type=='5'" style="color: #333333;font-size: 14px;line-height: 50px;text-align: center">确定要删除本ftp服务器吗？</p>
+        <br/>
+        <button class="smallGreen_botton" ng-click="sureDeleteData(deleteMetaDataObj.type)">删除</button>
+        <button class="smallGrey_botton" style="margin-left:20px;" ng-click="cancelData()">取消</button>
+    </div>
+</div>

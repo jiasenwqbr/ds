@@ -1,0 +1,86 @@
+@charset "UTF-8";
+table.tableTreeDIY{
+    width: 100%;
+    font-family: "microsoft yahei";
+    border-top: 0px;
+    margin: 0px;
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+table.tableTreeDIY input[type='checkbox']{
+    border: 1px solid #dedede;
+    border-radius: 2px;
+}
+
+table.tableTreeDIY i[class*='fa']{
+    margin-right: 5px;
+}
+
+table.tableTreeDIY i[class*='square-o']{
+    cursor: pointer;
+}
+
+
+table.tableTreeDIY thead tr{
+    font-size: 15px;
+}
+
+table.tableTreeDIY thead tr td{
+    height: 30px;
+    line-height:30px ;
+    text-align: left;
+    padding-left:5px;
+    border:0px ;
+}
+
+table.tableTreeDIY tbody tr{
+    font-size: 14px;
+}
+
+
+table.tableTreeDIY tbody tr:hover{
+    color:#FFFFFF;
+    background-color:#7f9dff;
+
+}
+
+table.tableTreeDIY tbody tr:hover a{
+    color:#ffffff;
+}
+
+table.tableTreeDIY tbody tr td{
+    height: 30px;
+    line-height:30px ;
+    text-align: left;
+    padding-left:5px;
+    cursor: pointer;
+}
+
+
+table.tableTreeDIY tbody tr td a{
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+table.tableTreeDIY tbody tr td a:hover{
+    font-weight: bold;
+}
+
+.childrenIndent{
+    display:inline-block;
+    width:18px;
+    height: 1px;
+}
+
+.childrenIndentQ{
+    display:inline-block;
+    width:24px;
+    height: 5px;
+}
+.childrenIndentQS{
+    display:inline-block;
+    width:4px;
+    height: 5px;
+}

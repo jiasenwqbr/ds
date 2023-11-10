@@ -1,0 +1,300 @@
+@charset "UTF-8";
+.home {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, STHeiti, "Microsoft Yahei", sans-serif;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+
+.home #page-header{
+    width:100%;
+    height:8%;
+    /*box-shadow: 0px 3px 10px #BBBBBB;*/
+    border-bottom: 1px solid #E0E6EB;
+    padding: 0.2% 5.1% 0%;
+    text-align:left;
+    position: absolute;
+    top:0;
+    left:0;
+    background-image: url("../../img/bg_log.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 18.2%;
+    z-index: 10;
+}
+
+.home #page-header h1{
+    font-size: 20px;
+    line-height: 22px;
+    /*font-weight: bold;*/
+}
+
+.home #page-header h2{
+    font-size: 13px;
+    line-height: 13px;
+}
+.home .leftMenu {
+    width: 20%;
+    height: 92%;
+    position: absolute;
+    top: 16%;
+    left:0;
+    background-color: #ffffff;
+    z-index: 1;
+}
+
+.home .leftMenu ul{
+    /*margin: 10% 0 0 0 ;*/
+    padding:0;
+    overflow: hidden;
+    list-style-type: none;
+    width:100%;
+    height:100%;
+    background-image: url("../../img/u2.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+
+}
+
+.home .leftMenu ul li{
+    width: 100%;
+    height: 60px;
+    text-align: left;
+    cursor: pointer;
+    /*border-bottom: 1px solid #dddddd;*/
+    padding-top: 10px;
+}
+
+/*.home .leftMenu ul li:last-child{*/
+    /*border-bottom: 1px solid #358bc6;*/
+/*}*/
+
+.home .leftMenu ul li .nav{
+    width: 100%;
+    height:60px;
+    line-height:60px;
+    display: block;
+    /*color:#666666;*/
+    color:#333;
+    text-align: left;
+    text-indent: 15px;
+    font-size: 19px;
+    /*font-weight: bold;*/
+    background: none;
+
+}
+
+.home .leftMenu ul li .nav i{
+    font-size: 15px;
+    vertical-align: middle;
+    margin-right: 21px;
+}
+
+.home .leftMenu ul li[class*='active']{
+    background-color: #eef3f6;
+    border-bottom: 0px;
+    border-right: 3px solid #32d08f;
+    width: 99%;
+}
+
+.home .leftMenu ul li:not([class*='active']){
+    background-color: #ffffff;
+}
+
+.home .leftMenu ul li:hover{
+    background-color: #eef3f6;
+    border-right: 3px solid #32d08f;
+    width: 99%;
+}
+
+.home .leftMenu ul div{
+    border-right: 3px solid #32d08f;
+    width: 99%;
+    background-color: #eef3f6;
+    /*border-bottom: 1px solid #dddddd;*/
+    padding-bottom: 10px;
+}
+
+
+.home .leftMenu ul div p{
+    position: relative;
+    line-height: 36px;
+    text-align: left;
+    cursor: pointer;
+    /*border-top: 1px solid #358bc6;*/
+    background-color: #eef3f6;
+    text-indent: 80px;
+    /*color:#666666;*/
+    color:#333;
+    font-size:16px;
+}
+
+.home .leftMenu ul div p i{
+    position: absolute;
+    left: 80px;
+    top: 13px;
+    font-size:7px;
+    vertical-align: middle;
+    margin-right: 7px;
+    margin-left: -17px;
+    text-indent: 0;
+}
+
+.home .leftMenu ul div p:hover{
+    background-color: #dae3e8;
+    color:#39d5b0;
+}
+
+
+
+/*目录资源*/
+.home .leftMenu ul li[class*='active'] #catalog_nav{
+    background: url("../../img/u7_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #catalog_nav{
+    background: url("../../img/u7.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #catalog_nav{
+    background: url("../../img/u7_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+/*共享交换*/
+.home .leftMenu ul li[class*='active'] #dsep_nav{
+    background: url("../../img/u9_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #dsep_nav{
+    background: url("../../img/u9.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #dsep_nav{
+    background: url("../../img/u9_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+/*共享交换改名为交换策略*/
+.home .leftMenu ul li[class*='active'] #dsep_nav2{
+    background: url("../../img/u9_2_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #dsep_nav2{
+    background: url("../../img/u9_2.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #dsep_nav2{
+    background: url("../../img/u9_2_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+/**/
+.home .leftMenu ul li[class*='active'] #sbs_mgr_nav{
+    background: url("../../img/u11_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #sbs_mgr_nav{
+    background: url("../../img/u11.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #sbs_mgr_nav{
+    background: url("../../img/u11_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+/**/
+.home .leftMenu ul li[class*='active'] #data_govern_nav{
+    background: url("../../img/u13_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #data_govern_nav{
+    background: url("../../img/u13.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #data_govern_nav{
+    background: url("../../img/u13_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+/*系统管理*/
+.home .leftMenu ul li[class*='active'] #sys_nav{
+    background: url("../../img/u15_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #sys_nav{
+    background: url("../../img/u15.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #sys_nav{
+    background: url("../../img/u15_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+
+/*监控统计*/
+.home .leftMenu ul li[class*='active'] #sts_nav{
+    background: url("../../img/u17_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+.home .leftMenu ul li:not([class*='active']) #sts_nav{
+    background: url("../../img/u17.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home .leftMenu ul li:hover #sts_nav{
+    background: url("../../img/u17_mouseOver.png") no-repeat;
+    background-size:200px 45px;
+}
+
+.home #container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* header style star */
+.header{position:fixed;top:0;left:0;z-index:20;}
+.header .topBar{background:#eef3f6;height:110px;position: relative;width: 1903px; overflow:hidden;vertical-align: middle;line-height: 110px;border-bottom:1px solid #d9e0e7;}
+.header .inner{width: auto;margin: 0 auto;}
+.header .logo{width:300px;height: 64px;border-right:1px solid #157acf;float:left;margin-top: 30px;}
+.header .logo a{display: inline-block;width: 100%;height: 100%;text-align: center;line-height: 64px;}
+.header .logo img{vertical-align:middle;}
+.header .nav{height:110px;float: left;}
+.header .nav ul{float: right; padding-left:20px;box-sizing: border-box;height:110px;}
+.header .nav li{float: left;line-height: 110px;cursor: pointer;height:110px;margin-right: 8px;}
+.header li a{display: inline-block;padding: 0 30px;color:#627899;font-size: 20px;height:109px;line-height:109px}
+.header .active{border-bottom:2px solid #68a6f6; color:#68A6F6; background: url(../../img/header_hover.png) no-repeat left center;}
+.header .active a{color:#68A6F6;border-bottom:2px solid #68a6f6;}
+.header li:hover a{text-decoration: none;color:#68a6f6;border-bottom:2px solid #68a6f6;}
+.header li:hover{border-bottom:2px solid #68a6f6;}
+.header .userArea{color:#fff;font-size: 14px;line-height: 110px;vertical-align: middle;}
+.header .userArea a{display: inline-block;margin: 0 20px;color: #fff;  cursor: pointer;}
+.log_header{background:url(../../img/bg_log.png) no-repeat;display: inline-block;float: left; line-height:30px;padding-top:25px;box-sizing:border-box;width:270px;}
+.log_header p{color:#fff;font-size:20px;padding-left:100px;box-sizing: border-box;height:85px;}
+.userArea span{height:110px;vertical-align: middle;display: inline-block;line-height: 110px;color:#58687c;margin-right:8px;font-weight:bold;}
+.userArea span img{vertical-align: middle;}
+.userArea{height:110px;line-height: 110px;vertical-align: middle;float:right;}
+.userArea a{vertical-align: middle; width:57px;height:26px;line-height:26px;text-align:center;border-radius: 15px;background: #68a6f6;color:#fff;}
+.header .userArea .img-span{
+    background: url("../../img/login_l.png") no-repeat left center;
+    background-size: 54px 54px;
+    width: 54px;
+    height: 54px;
+}
+/* header style end */
+
+
+
+
+
+

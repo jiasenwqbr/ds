@@ -1,0 +1,59 @@
+[{
+  "id":"1",
+  "codeDesc":"是",
+  "code":"00101",
+  "codeType":"001",
+  "codeTypeDesc":"是否编码"
+},
+  {
+    "id":"2",
+    "codeDesc":"否",
+    "code":"00102",
+    "codeType":"001",
+    "codeTypeDesc":"是否编码"
+  },
+  {
+    "id":"3",
+    "codeDesc":"管理员",
+    "code":"00201",
+    "codeType":"002",
+    "codeTypeDesc":"权限编码"
+  },
+  {
+    "id":"4",
+    "codeDesc":"普通用户",
+    "code":"00202",
+    "codeType":"002",
+    "codeTypeDesc":"权限编码"
+  },
+  {
+    "id":"5",
+    "codeDesc":"超级管理员",
+    "code":"00203",
+    "codeType":"002",
+    "codeTypeDesc":"权限编码"
+  },{
+  "id":"6",
+  "codeDesc":"启动",
+  "code":"00301",
+  "codeType":"003",
+  "codeTypeDesc":"任务状态"
+},{
+  "id":"7",
+  "codeDesc":"暂停",
+  "code":"00302",
+  "codeType":"003",
+  "codeTypeDesc":"任务状态"
+},{
+  "id":"8",
+  "codeDesc":"停止",
+  "code":"00303",
+  "codeType":"003",
+  "codeTypeDesc":"任务状态"
+},{
+  "id":"9",
+  "codeDesc":"等待",
+  "code":"00304",
+  "codeType":"003",
+  "codeTypeDesc":"任务状态"
+}]

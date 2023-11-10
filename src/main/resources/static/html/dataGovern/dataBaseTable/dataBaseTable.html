@@ -1,0 +1,19 @@
+
+    <table class="bigTable" ng-if="values.length>0">
+        <thead>
+        <tr>
+            <td width="60px" style="padding:0 10px;" ng-repeat="column in columns" ng-if="column=='rowIndex'">序号</td>
+            <td width="140px" style="padding:0 10px;" ng-repeat="column in columns track by $index" title="{{column}}" ng-if="column!='rowIndex'">{{column}}</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row_valueArray in values" ng-class="{true:'odd',false:'even'}[$index%2==0]"><!--遍历每行数据，解决索引嵌套引用问-->
+            <td width="140px"  style="padding:0 10px;" ng-repeat="attr_value in row_valueArray track by $index" title="{{attr_value}}">{{attr_value}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <span  ng-if="values.length==0" style="font-size: 14px;color: #666666">
+        无数据
+    </span>
+
+   

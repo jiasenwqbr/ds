@@ -1,0 +1,174 @@
+<div class="jdgpBoxDetail" ng-controller="metadataMapAddController">
+    <div class="jdgpBoxTitle">
+        <span ng-if="addDataType=='1'">新建数据库</span>
+        <span ng-if="addDataType=='0'">新建表</span>
+        <i class="color_white ngdialog-close"></i>
+    </div>
+    <div class="jdgpBoxComment" style="background-color:#ffffff">
+        <div class="bigDiv"  ng-if="addDataType=='1'" style="border: 0;margin: 0;">
+            <div class="jobTaskexchangeDetail" style="margin-top: -10px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>资源目录元数据</span></p>
+                <div class="bigSearchDiv" style="clear: both">
+                    <button class="bigBlue_botton" ng-if="type=='1'" style="width: auto;" ng-click="changeType(1)">
+                        <span>新建数据库</span>
+                    </button>
+                    <button class="borderGery_botton" ng-if="type=='0'" style="width: auto;" ng-click="changeType(1)">
+                        <span>新建数据库</span>
+                    </button>
+                    <button class="bigBlue_botton" ng-if="type=='0'" style="width: auto;" ng-click="changeType(0)">
+                        <span>新建FTP服务器</span>
+                    </button>
+                    <button class="borderGery_botton" ng-if="type=='1'" style="width: auto;" ng-click="changeType(0)">
+                        <span>新建FTP服务器</span>
+                    </button>
+                </div>
+                <table class="jobTaskTableD" style="clear: both">
+                    <tr ng-if="type=='1'">
+                        <td width="25%"><strong>数据库名称</strong></td>
+                        <td width="75%">
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.datasourceName"/>
+                            <span class="help-block" ng-show="datasourceNameShow" style="color:red;">请输入数据库名称</span>
+                        </td>
+                    </tr>
+                    <tr ng-if="type=='1'">
+                        <td width="25%"><strong>数据库别名</strong></td>
+                        <td width="75%">
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                            <span class="help-block" ng-show="databaseDescShow" style="color:red;">请输入数据库别名</span>
+                        </td>
+                    </tr>
+                    <tr ng-if="type=='0'">
+                        <td width="25%"><strong>FTP服务名称</strong></td>
+                        <td width="75%">
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.datasourceName"/>
+                            <span class="help-block" ng-show="datasourceNameShow" style="color:red;">请输入FTP服务名称</span>
+                        </td>
+                    </tr>
+                    <tr ng-if="type=='1'">
+                        <td width="25%"><strong>实例名称</strong></td>
+                        <td width="75%">
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.instance"/>
+                            <span class="help-block" ng-show="instanceShow" style="color:red;">请输入实例名称</span>
+                        </td>
+                    </tr>
+                    <tr ng-if="type=='1'">
+                        <td><strong>数据库类型</strong></td>
+                        <td>
+                            <select style="width:65%;margin-top:0px;margin-left:0px;" ng-model="addMetaDataObj.type">
+                                <option value = "oracle">oracle</option>
+                                <option value = "mysql">mysql</option>
+                            </select>
+                            <!--<input style="width:65%" type="text"  ng-model="addMetaDataObj.type"/>-->
+                            <span class="help-block" ng-show="typeShow" style="color:red;">请输入数据库类型</span>
+                        </td>
+                    </tr>
+                    <tr ng-if="type=='1'">
+                        <td width="25%"><strong>描述</strong></td>
+                        <td width="75%">
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP地址</strong></td>
+                        <td >
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.ip"/>
+                            <span class="help-block" ng-show="ipShow" style="color:red;">请输入IP地址</span>
+                            <span class="help-block" ng-show="isIpShow" style="color:red;">请输入正确的IP地址</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>端口号</strong></td>
+                        <td >
+                            <input style="width:65%" type="text"  ng-model="addMetaDataObj.port"/>
+                            <span class="help-block" ng-show="portShow" style="color:red;">请输入端口号</span>
+                            <span class="help-block" ng-show="isPortShow" style="color:red;">请输入正确的端口号</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户名</strong></td>
+                        <td >
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.username"/>
+                            <span class="help-block" ng-show="usernameShow" style="color:red;">请输入用户名</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>密码</strong></td>
+                        <td >
+                            <input style="width:65%" type="text" ng-model="addMetaDataObj.password"/>
+                            <span class="help-block" ng-show="passwordShow" style="color:red;">请输入密码</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="bigDiv"  ng-if="addDataType=='0'" style="border: 0;margin: 0;">
+            <div class="jobTaskexchangeDetail" style="margin-top: -10px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>表信息</span></p>
+                <table class="jobTaskTableD" style="clear: both">
+                    <tr>
+                        <td width="25%"><strong>表名称</strong></td>
+                        <td width="75%">
+                            <input type="text" ng-model="addMetaTableObj.tableName"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>字段名称</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnName"/>
+                        </td>
+                    </tr><tr>
+                        <td><strong>数据类型</strong></td>
+                        <td >
+                            <input type="text"  ng-model="addMetaTableObj.columnDataType"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>长度</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnDataLength"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>是否可空</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnIsNull"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>默认值</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnDataDefault"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>是否主键</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnIsKey"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>说明</strong></td>
+                        <td >
+                            <input type="text" ng-model="addMetaTableObj.columnInstruction"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="jobTaskexchangeDetail"   style="margin-top: 10px">
+                <p class="jobTaskTitle"><i class="fa fa-circle color_red"></i><span>表统计类信息</span></p>
+                <table class="jobTaskTableD">
+                    <tr>
+                        <td width="25%"><strong>记录数</strong></td>
+                        <td  width="75%">
+                            <input type="text"  ng-model="addMetaTableObj.recordNum"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <button class="smallGreen_botton" ng-click="saveAddData(addMetaDataObj,addDataType,type)">保存</button>
+        <button class="smallGrey_botton" style="margin-left:20px;" ng-click="cancelData()">取消</button>
+    </div>
+</div>

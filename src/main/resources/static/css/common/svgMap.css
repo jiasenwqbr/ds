@@ -1,0 +1,36 @@
+#svg .pointer{
+    cursor: pointer;
+}
+
+#svg .tipAngle{
+    fill:#ffffff;
+    fill-rule:nonzero;
+}
+
+#hover_gLE_angel,#hover_gLT_angel{
+    width:0;
+    height: 0;
+    border-bottom: 10px solid #ffffff;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+#hover_gLE_box,#hover_gLT_box{
+    width:auto;
+    height: 100px;
+    overflow-y:auto;
+    background-color: #ffffff;
+    padding:10px;
+    border-top-left-radius:0px;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px;
+    box-shadow:0px 0px 3px #bbbbbb;
+}
+
+#hover_gLE_box p,#hover_gLT_box p{
+    text-align: left;
+    font-size: 13px;
+    color: #333333;
+    line-height: 22px;
+}

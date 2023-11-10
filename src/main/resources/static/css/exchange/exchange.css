@@ -1,0 +1,603 @@
+@charset "UTF-8";
+#addExchangeApp{
+    margin-bottom: 2%;
+}
+#addExchangeApp .addExchangeTitle{
+    width:94%;
+    padding: 0 3%;
+    height:50px;
+    line-height: 50px;
+    color: #5E5E5E;
+}
+
+#addExchangeApp .addExchangeTitle span{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#addExchangeApp .addExchangeMenu{
+    width: 100%;
+    height: 40px;
+    background-color: rgba(242, 242, 242, 1);
+    text-align: center;
+}
+#addExchangeApp .addExchangeMenu ul{
+    height:40px;
+    margin-top: 10px;
+}
+
+#addExchangeApp .addExchangeMenu ul:first-child{
+    border-left: 1px solid rgba(228, 228, 228, 1);
+    margin-left: 3%;
+}
+
+#addExchangeApp .addExchangeMenu ul li{
+    float: left;
+    border-top:  1px solid rgba(228, 228, 228, 1);
+    border-right:  1px solid rgba(228, 228, 228, 1);
+    border-bottom: 1px solid rgba(228, 228, 228, 1) ;
+    height: 38px;
+    line-height: 38px;
+    width: 24%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+#addExchangeApp .addExchangeMenu ul li span{
+    font-weight: 700;
+    font-size: 14px;
+    color: #A1A1A1;
+}
+
+#addExchangeApp .addExchangeMenu ul li i{
+    font-size: 18px;
+    color: #A1A1A1;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#addExchangeApp .addExchangeMenu ul li i.hasChecked{
+    color: #0581DE;
+}
+
+#addExchangeApp .addExchangeMenu ul li.active{
+    background-color:#0581DE ;
+}
+
+#addExchangeApp .addExchangeMenu ul li.active span{
+    color: #ffffff;
+}
+
+#addExchangeApp .addExchangeMenu ul li.active i{
+    color: #ffffff;
+}
+
+#addExchangeApp  .addExchangeComment{
+    width:94%;
+    min-heigth: 100px;
+}
+
+/*TODO:非结构化样式*/
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_left{
+    width: 28%;
+    padding: 1%;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    border: 1px solid #E4E9ED;
+    float: left;
+    height: 500px;
+    overflow: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right{
+    width: 68.4%;
+    background: none;
+    border-radius: 5px;
+    border: 1px solid #E4E9ED;
+    float: left;
+    min-height: 500px;
+    overflow: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 1%;
+}
+
+
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right treecontrol.tree-light li.tree-expanded i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../../static/angular-tree-control-master/images/node-opened-light.png") no-repeat;
+    background-size: 12px 18px;
+    background-position: 3px 3px;
+}
+
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right treecontrol.tree-light li.tree-collapsed i.tree-branch-head {
+    padding: 1px 10px;
+    background: url("../../static/angular-tree-control-master/images/node-closed-light.png") no-repeat;
+    background-size: 16px 12px;
+    background-position: 0px 5px;
+}
+
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right treecontrol.tree-light li{
+    line-height: 50px;
+    border-bottom: 1px solid #E4E9ED;
+    padding: 0 0 0 30px;
+}
+
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right treecontrol.tree-light li:hover{
+    background:#E1F2FA ;
+}
+
+#addExchangeApp  .addExchangeComment .addExchangeNoStruTree_right treecontrol.tree-light >ul > li{
+    padding: 0 0 0 15px;
+}
+
+
+#addExchangeApp  .addExchangeComment .addExchangeItem{
+    width:100%;
+    clear: both;
+    margin: 7px 3%;
+    /*border-bottom: 1px solid #F3F3F3;*/
+}
+
+.addExchangeItem table.exchangeRule{
+    width:90%;
+    margin-left: 5%;
+    margin-top: 20px;
+}
+
+.addExchangeItem table.exchangeRule thead tr{
+    height: 30px;
+    background-color: rgba(242, 242, 242, 1);
+}
+
+.addExchangeItem table.exchangeRule thead tr td{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: #868686;
+    font-size: 14px;
+}
+
+.addExchangeItem table.exchangeRule tbody tr{
+    border: 1px solid #ECECEC;
+    border-right: 0px;
+    height: 80px;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #868686;
+    font-size: 14px;
+    border-right:  1px solid #ECECEC;
+    overflow: hidden;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td strong{
+    font-weight: 700;
+    color: #5E5E5E;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td span{
+    color:#1396ff;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td select{
+    height:30px;
+    width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #939ba7;
+    font-size: 14px;
+    border: 1px #d9e0e7 solid;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 16px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td select.selected{
+    color: #1396ff;
+    border: 1px #1396ff solid;
+}
+
+.addExchangeItem table.exchangeRule tbody tr td button{
+    /*width: 80px;*/
+}
+
+.addExchangeItem table.exchangeRule tbody tr td button.clickRule{
+    width: auto;
+    padding: 0px 10px;
+    border-radius: 26px;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background: #0CABE3;
+    border: none;
+    line-height: 22px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.addExchangeItem hr{
+    height: 1px;
+    border: 0px;
+    background-color: #DDDDDD;
+    clear: both;
+}
+
+.addExchangeItem .addExchangeItemP{
+    width:20%;
+    text-align: left;
+    float: left;
+}
+
+.addExchangeItem .addExchangeItemP p{
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    color: #C9C9C9;
+    line-height: 40px;
+}
+
+.addExchangeItem .addExchangeItemP p i{
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.addExchangeItem  .addExchangeItemC{
+    width:80%;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelectBox{
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    position:static;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelectBox select{
+    margin-right: 15px;
+    height: 30px;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #939ba7;
+    font-size: 14px;
+    border: 1px #d9e0e7 solid;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelectBox select.selected{
+    color: #1396ff;
+    border: 1px #1396ff solid;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTree{
+    width: 64%;
+    height:200px;
+    padding: 10px 1.8%;
+    background-color: rgba(242, 242, 242, 1);
+    overflow:auto ;
+    float: left;
+    text-align: left;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelected{
+    width: 26%;
+    height:200px;
+    padding: 10px 1.8%;
+    background-color: rgba(242, 242, 242, 1);
+    float: left;
+    margin-left: 2%;
+    overflow: auto;
+}
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelected p{
+    line-height:40px;
+    text-align: left;
+}
+
+.addExchangeItem  .addExchangeItemC  .addExchangeTreeSelected span{
+    color: #1396ff;
+    font-size: 14px;
+    border: 1px #1396ff solid;
+    padding: 3px 19px;
+    border-radius: 16px;
+}
+
+.addExchangeItem  .addExchangeItemC table.exchangeDataSelected{
+    width:100%;
+    min-height: 80px;
+}
+
+table.exchangeDataSelected thead tr{
+    height:40px;
+    color: #797979;
+}
+
+table.exchangeDataSelected thead tr td{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+table.exchangeDataSelected tbody tr{
+    height:40px;
+}
+
+table.exchangeDataSelected tbody tr td{
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+}
+
+table.exchangeDataSelected tbody tr td select{
+    height:30px;
+    width: 110px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #939ba7;
+    font-size: 14px;
+    border: 1px #d9e0e7 solid;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+table.exchangeDataSelected tbody tr td select.selected{
+    color: #1396ff;
+    border: 1px #1396ff solid;
+}
+
+table.exchangeDataSelected tbody tr td input[type='text']{
+    height:28px;
+    width: 110px;
+    text-align: center;
+    color: #939ba7;
+    font-size: 14px;
+    border: 1px #d9e0e7 solid;
+    line-height: 28px;
+    padding: 0px 19px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+table.exchangeDataSelected tbody tr td input[type='text'].selected{
+    color: #1396ff;
+    border: 1px #1396ff solid;
+}
+
+table.exchangeDataSelected tbody tr td button{
+    width:80px;
+}
+
+table.exchangeDataSelected  tbody tr td i.add{
+    cursor: pointer;
+    font-size: 30px;
+    color: #fe7903;
+    margin-right: 5px;
+    margin-top:10px;
+}
+
+table.exchangeRule tbody tr td i.add {
+    cursor: pointer;
+    font-size: 30px;
+    color: #fe7903;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+
+.jdgpBoxDetail .jdgpBoxComment .boxRuleCSearch{
+    width: 100%;
+    min-height: 34px;
+    padding: 1px 3%;
+    border-bottom: 1px solid #7c7c7c;
+    text-align: center;
+    line-height: 34px;
+    clear: both;
+    overflow: hidden;
+}
+.jdgpBoxDetail .jdgpBoxComment .boxRuleCSearch:last-child{
+    margin-right: 0px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment .boxRuleCSearch button{
+    padding: 1px 10px 3px 10px;
+    font-size: 12px;
+    font-family: "Microsoft Yahei";
+    border-radius: 26px;
+    border: 1px solid #0581DE;
+    outline: none;
+    cursor: pointer;
+    background:none;
+    color: #1396ff;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.jdgpBoxDetail .jdgpBoxComment .boxRuleCList{
+    width: 100%;
+    padding:5px 0;
+    text-align: center;
+}
+
+.boxRuleCList h1{
+    font-weight: 700;
+    font-size: 16px;
+    color: #868686;
+    text-align: center;
+    line-height:30px;
+}
+
+.boxRuleCList .ruleCInputDiv{
+    width: 180px;
+    height: 23px;
+    background: none;
+    border: 1px solid #d9e0e7;
+    border-radius: 3px;
+    float: right;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+.boxRuleCList .ruleCInputDiv input{
+    clear: both;
+    width: 80%;
+    height: 20px;
+    font-size: 14px;
+    font-family: "Microsoft Yahei";
+    background: none;
+    border: 0px;
+    outline: none;
+    position: absolute;
+    top: 2px;
+    left: 7%;
+    color: #939ba7;
+}
+
+.boxRuleCList .ruleCInputDiv button{
+    border: 0px;
+    background: none;
+    color: #999999;
+    position: absolute;
+    top: 3px;
+    right: 3%;
+    cursor: pointer;
+    outline: none;
+}
+
+.boxRuleCList table{
+    width:100%;
+    border-top: 1px solid #EDEDED;
+    border-left: 1px solid #EDEDED;
+}
+
+.boxRuleCList table thead tr{
+    height:30px;
+    background-color: #F2F2F2;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.boxRuleCList table thead tr td{
+    height:30px;
+    line-height:30px;
+    font-size: 14px;
+    color: #7c7c7c;
+    /*font-weight: bold;*/
+    text-align: center;
+    border-right: 1px solid #EDEDED;
+}
+.boxRuleCList table tbody tr{
+    height:30px;
+    border-bottom: 1px solid #EDEDED;
+    background: none;
+}
+
+.boxRuleCList table tbody tr.odd{
+    background-color: #f8f8f8;
+}
+
+.boxRuleCList table tbody tr.even{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.boxRuleCList table tbody tr td{
+    height:30px;
+    line-height:30px;
+    font-size: 14px;
+    color: #7c7c7c;
+    text-align: center;
+    border-right: 1px solid #EDEDED;
+}
+
+.boxRuleCList table tbody tr td button{
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.boxRuleCList table tbody tr td input{
+    width:97.8%;
+    margin-left: 1%;
+    margin-top: 1px;
+    border: 1px solid #cfcdcd;
+    height:26px;
+    line-height:26px;
+    background: none;
+    font-size: 14px;
+    color:#7c7c7c;
+    text-overflow:ellipsis;
+}
+
+treecontrol.tree-light li.tree-expanded i.tree-branch-head {
+    padding: 1px 12px;
+    background: url("../../img/u573_treeExpanded.png") no-repeat;
+    background-size: 12px 18px;
+    background-position: 3px 3px;
+}
+
+treecontrol.tree-light li.tree-collapsed i.tree-branch-head {
+    padding: 1px 12px;
+    background: url("../../img/u597_treeCollapsed.png") no-repeat;
+    background-size: 16px 12px;
+    background-position: 0px 5px;
+}
+
+.addExchangeItem  .addExchangeItemC  .loadingDiv {
+    width:50%;
+    height:200px;
+    overflow:auto ;
+    float:left;
+    position:fixed;
+    z-index:9999;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.50;
+    opacity:0.50;
+    padding: 10px 1.8%;
+    background-color: rgba(242, 242, 242, 1);
+    text-align:center;
+}
+
+.innerSelect {
+    margin-right: 15px;
+    height: 30px;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #939ba7;
+    font-size: 14px;
+    border: 1px #d9e0e7 solid;
+    line-height: 30px;
+    padding: 0px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+

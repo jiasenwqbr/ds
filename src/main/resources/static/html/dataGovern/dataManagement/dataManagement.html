@@ -1,0 +1,866 @@
+<style type="text/css">
+    .bigDiv .bigListDiv  table{
+       table-layout:auto!important;
+    }
+    .bigDiv .bigListDiv  table.bigTable thead tr td{
+    	white-space:nowrap;
+    }
+    .vSpilt_right > p.color_Lblue{
+      margin-left:15px;
+    }
+    .vSpilt_right{
+       margin-left:0;
+    }
+    .pager{
+       margin:10px 0 0 0;
+    }
+    .menu_list{
+      float:right;
+      position:relative; 
+      margin:10px 40px 0 0;
+      top:auto;
+      right:auto;
+    }
+    .menu_body{
+       position:absolute;
+    }
+</style>
+<!--数据治理-->
+<div class="bigDiv" ng-controller="metadataMapController">
+    <div class="bigTitle color_black">
+        <p><i class="fa fa-circle"></i>数据管理系统</p>
+    </div>
+    <div class="hSpilt_bottom" style="height:calc(100% - 100px)">
+        <!--标准分类树开始-->
+        <div class = "vSpilt_left" style="overflow:auto;height:100%;">
+            <loading is-loading="isLoading"></loading>
+            <div style = "width: calc(100% - 10px);margin-top:10px;margin-left:10px; text-align:left;">
+                <!--修改css图片样式-->
+                <treecontrol class='tree-light'
+                             tree-model='treeData'
+                             options='treeOptions'
+                             selected-node='selectedNode'
+                             expanded-nodes='expanded_Nodes'
+                             on-node-toggle='loadNodeData(node,expanded,$parentNode)'
+                             on-selection='selectNodeClick(node, selected,$parentNode)'>
+                        <span style="white-space:nowrap;">
+		                    <span ng-if="node.dataType=='1'" class='fa fa-th-large' title="主题类别库"></span>
+		                    <span ng-if="node.dataType=='5'" class='fa fa-folder-o' title="FTP目录"></span>
+		                    <span ng-if="node.dataType=='2'&&node.data.type!='ftp'" class='fa fa-database' title="真实物理数据库"></span>
+		                    <span ng-if="node.dataType=='3'" class='fa fa-table' title="数据库表"></span>
+		                    <span ng-if="node.dataType=='3'&&node.type=='ftp'" class='fa fa-folder-o' title="目录"></span>
+		                    <span ng-if="node.dataType=='8'" class='fa fa-folder-o' title="HDFS目录"></span>
+		                    <span ng-if="node.dataType=='6'" class='fa fa-file-text' title="文件"></span>
+		                    {{node.topicName}}
+	                    </span>
+                   
+                </treecontrol>
+            </div>
+        </div>
+        <!--标准分类树结束-->
+        
+        <div class = "vSpilt_right" style="background: #F2F2F2;height:100%;" ng-init="initMetaData()">
+           <button ng-if="showDeletBtn=='删除'" class="bigBlue_botton"  ng-click="deleteData()" style="line-height:32px;float:right;margin:10px 10px 0 0;position:relative;z-index:999;">
+                <span>删除</span>
+            </button>
+            <div ng-if="addDataNode==true" id="firstpane" class="menu_list">
+                <p class="menu_head current">新增子节点</p>
+                <div class="menu_body">
+                    <a href="#" ng-click="addZTLB()">主题类别</a>
+                    <a href="#" ng-if="showmenu=='数据源'" ng-click="addSJK()">数据源(库)</a>
+                    <a href="#" ng-click="addSJB()">数据表</a>
+                    <a href="#" ng-if="showmenu=='字段'" ng-click="addZD()">表字段</a>
+                    <a href="#" ng-click="addFTPFWQ()">FTP服务器</a>
+                    <a href="#" ng-click="addHDFSFWQ()">HDFS服务器</a>
+                    <a href="#" ng-click="addFTPWJJ()">FTP文件夹</a>
+<!--                     <a href="#" ng-click="addFTPSheet()">sheet</a> -->
+<!--                     <a href="#"  ng-click="addExcelZD()">Excel字段</a> -->
+                </div>
+            </div>
+            <!--库信息展示开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='1'" style="margin-top: 0px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>{{metaDataObj.instance}}</span></p>
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==false" ng-click="dataBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>修改</span>
+                </button>
+                <button class="bigGrey_botton"  ng-if="isDataBaseModify==true" ng-click="cancleBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>取消</span>
+                </button>
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==true" ng-click="dataBaseSave(metaDataObj)" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>保存</span>
+                </button>
+                <table class="jobTaskTableD" style="clear: both">
+                    <input type="hidden" ng-model="metaDataObj.id"/>
+                    <tr>
+                        <td width="25%"><strong>数据库名称</strong></td>
+                        <td width="75%" ng-if="isDataBaseModify==false">
+                            {{metaDataObj.datasourceName}}
+                        </td>
+                        <td width="75%" ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaDataObj.datasourceName"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%"><strong>实例名称</strong></td>
+                        <td width="75%" ng-if="isDataBaseModify==false">
+                            {{metaDataObj.instance}}
+                        </td>
+                        <td width="75%" ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaDataObj.instance" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>数据库类型</strong></td>
+                        <td ng-if="isDataBaseModify==false">{{metaDataObj.dbType}}</td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaDataObj.dbType" disabled/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>描述</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaDataObj.databaseDesc}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaDataObj.databaseDesc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP地址</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaDataObj.ip}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaDataObj.ip" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>端口号</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaDataObj.port}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaDataObj.port" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户名</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaDataObj.username}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaDataObj.username" disabled/>
+                        </td>
+                    </tr>
+                    </table>
+            </div>
+            <!--库信息展示结束-->
+            
+             <!--新增数据表开始（有分页1 currentPage1）-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='数据表'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton">
+                                <span>新增数据表</span>
+                            </button>
+                        </div>
+						<div class="inputNameDiv" style="margin-bottom: 20px;">
+							<input type="text" value=""  placeholder="表名" />
+							<button class="fa fa-search" ng-click="addSJB()"></button>
+						</div>
+						<table id="jobTaskTableD" class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="10%"><strong>选择</strong></td>
+                                <td><strong>数据表名称</strong></td>
+                                <td><strong>中文名称</strong></td>
+                            </tr>
+                            <tr class="tableTr" ng-repeat="table in metaTabeName">
+                                <td width="10%"><input type="checkbox" name="{{addMetaTableObj}}" value="{{table.tableName}}"></td>
+                                <td>{{table.tableName}}</td>
+                                <td width="75%">
+                                    <input type="text" ng-model="addMetaTableObj" ng-init="addMetaTableObj=table.comment"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="pager3Id" class="pager" style="position:absolute;left:2%;">
+                            <pager page-count="pageCount" current-page="$parent.currentPage1" on-page-change="onPageChangeTable(currentPage1)"></pager>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddTableData(addMetaDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增数据表结束-->
+            
+            <!--表信息展示开始（有分页2 currentPage2）-->
+            <div class="bigDiv" ng-if="isDataBase=='2'">
+                <div class="bigTitle color_black">
+                    <p><i class="fa fa-circle"></i>浏览数据</p>
+                    <!-- <button ng-if="showDeletBtn=='删除'" class="bigBlue_botton"  ng-click="deleteData()" style="line-height:32px;float:right;margin:10px 10px 0 0">删除</button> -->
+                    <!--<span class="jobTaskBack" ng-click="returnBack()"><i style="border: 0" class="fa fa-mail-reply"></i>返回</span>-->
+                </div>
+                <div class="hSpilt_bottom"  style="zoom: 1;padding-top: 10px;">
+                    <!--列表-->
+                    <div  class = "vSpilt_right"style="border-radius: 3px;width:100%;min-height: 435px;position: relative;">
+                        <p class="color_Lblue">{{selectTableName}}表</p>
+
+                        <div class="inputDiv">
+                            <input type="text" value="" ng-keyup="keyup_queryTableValue($event)" ng-model="$parent.columnValue1" placeholder="列值">
+
+                            <button class="fa fa-search" ng-click="queryTableValue()"></button>
+                        </div>
+                        <!--<div  ng-repeat="col in columns"></div>-->
+                        <select class="selectBorderBlue"  ng-model="$parent.columnName1">
+                            <option value="">列名称</option>
+                            <option ng-repeat="colds in columncomments" value="{{colds}}" ng-if="colds!='rowIndex'">{{colds}}</option>
+                        </select>
+                        <hr/>
+                        <div class="bigListDiv" style="clear:both;overflow-x: auto;overflow-y: hidden">
+                            <jdgp-data-grid columns="columncomments" values="values" c1="currentPage2" c2="pageSize">
+                            </jdgp-data-grid>
+                            <div id="pager1Id" class="pager" style="position:absolute;left:2%;" ng-if="$parent.currentPage2_show">
+                                <pager page-count="pageCount" current-page="$parent.currentPage2" on-page-change="onPageChange(currentPage2)"></pager>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--列表结束-->
+                </div>
+            </div>
+            <!--表信息展示结束-->
+            
+			<!--sheet数据展示开始（有分页3 currentPage3）-->
+            <div class="bigDiv" ng-if="isDataBase=='showSheet'">
+                <div class="bigTitle color_black">
+                    <p><i class="fa fa-circle"></i>浏览数据</p>
+                    <!--<span class="jobTaskBack" ng-click="returnBack()"><i style="border: 0" class="fa fa-mail-reply"></i>返回</span>-->
+                </div>
+                <div class="hSpilt_bottom"  style="zoom: 1;padding-top: 10px;">
+                    <!--列表-->
+                    <div  class = "vSpilt_right"style="border-radius: 3px;width:100%;min-height: 435px;position: relative;">
+                        <p class="color_Lblue">名称:{{selectTableName}}</p>
+                        <hr/>
+                        <div class="bigListDiv" style="clear:both;overflow-x: auto;overflow-y: hidden">
+                            <table class="bigTable" ng-if="sheetValues.length>0">
+                                <thead>
+                                <tr>
+                                    <td width="140px" style="padding:0 10px;" ng-repeat="column in sheetHeader" ng-if="column!==''">{{column}}</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="row_valueArray in sheetValues" ng-class="{true:'odd',false:'even'}[$index%2==0]"><!--遍历每行数据，解决索引嵌套引用问-->
+                                    <td width="140px"  style="padding:0 10px;" ng-repeat="attr_value in row_valueArray" title="{{attr_value}}">{{attr_value}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <span  ng-if="sheetValues.length==0" style="font-size: 14px;color: #666666">无数据</span>
+                            <div id="pager2Id" class="pager" style="position:absolute;left:2%;">
+                                <pager page-count="pageCount" current-page="$parent.currentPage3" on-page-change="onPageChange3(currentPage3)"></pager>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--列表结束-->
+                </div>
+            </div>
+            <!--sheet数据展示结束-->            
+           
+            
+            <!--字段信息展示开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='3'" style="margin-top: 0px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>字段</span></p>
+                <table class="jobTaskTableD" style="clear: both">
+                    <tr>
+                        <td width="25%"><strong>字段名称</strong></td>
+                        <td width="75%">{{fieldList2.columnName}}</td>
+                    </tr>
+                    <tr>
+                        <td width="25%"><strong>数据类型</strong></td>
+                        <td width="75%">{{fieldList2.columnType}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>长度</strong></td>
+                        <td>{{fieldList2.length}}</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>是否可空</strong></td>
+                        <td ng-if="fieldList2.nullable==true">是</td>
+                        <td ng-if="fieldList2.nullable==false">否</td>
+                    </tr>
+                    <tr>
+                        <td><strong>默认值</strong></td>
+                        <td>{{fieldList2.defaultValue}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>是否主键</strong></td>
+                        <td ng-if="fieldList2.primaryKey==true">是</td>
+                        <td ng-if="fieldList2.primaryKey==false">否</td>
+                    </tr>
+                    <tr>
+                        <td><strong>说明</strong></td>
+                        <td>{{fieldList2.comment}}</td>
+                    </tr>
+                </table>
+            </div>
+            <!--字段信息展示结束-->
+
+            <!--FTP信息展示开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='4'" style="margin-top: 0px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>{{metaFTPDataObj.datasourceName}}</span></p>
+               
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==false" style="position:relative;line-height:32px;overflow:hidden;float:right;margin:10px 10px 0 0">
+                    <span>批量上传</span>
+                    <input type="file" id="upLoadId"  ng-if="isDataBaseModify==false" multiple style="position:absolute;right:0;font-size:100px;height:100%;cursor:pointer;top:0;opacity:0;"/>
+                </button>
+                
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==false" ng-click="dataBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>修改</span>
+                </button>
+                <button class="bigGrey_botton"  ng-if="isDataBaseModify==true" ng-click="cancleBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>取消</span>
+                </button>
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==true" ng-click="dataFTPBaseSave(metaFTPDataObj)" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>保存</span>
+                </button>
+                <table class="jobTaskTableD" style="clear: both">
+                    <input type="hidden" ng-model="metaDataObj.id"/>
+                    <tr>
+                        <td width="25%"><strong>FTP服务名称</strong></td>
+                        <td width="75%" ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.datasourceName}}
+                        </td>
+                        <td width="75%" ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaFTPDataObj.datasourceName"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>描述</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.databaseDesc}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaFTPDataObj.databaseDesc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP地址</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.ip}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaFTPDataObj.ip"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>路径</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.ftpPath}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaFTPDataObj.ftpPath"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>端口号</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.port}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaFTPDataObj.port"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户名</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaFTPDataObj.username}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaFTPDataObj.username"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--FTP信息展示结束-->            
+            
+            <!--HDFS信息展示开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='5'" style="margin-top: 0px;">
+                <p class="jobTaskTitle" style="float: left"><i class="fa fa-circle color_red"></i><span>{{metaHDFSDataObj.datasourceName}}</span></p>
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==false" ng-click="dataBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>修改</span>
+                </button>
+                <button class="bigGrey_botton"  ng-if="isDataBaseModify==true" ng-click="cancleBaseModified()" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>取消</span>
+                </button>
+                <button class="bigBlue_botton"  ng-if="isDataBaseModify==true" ng-click="dataHDFSBaseSave(metaHDFSDataObj)" style="line-height:32px;float:right;margin:10px 10px 0 0">
+                    <span>保存</span>
+                </button>
+                <table class="jobTaskTableD" style="clear: both">
+                    <input type="hidden" ng-model="metaDataObj.id"/>
+                    <tr>
+                        <td width="25%"><strong>HDFS服务名称</strong></td>
+                        <td width="75%" ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.datasourceName}}
+                        </td>
+                        <td width="75%" ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaHDFSDataObj.datasourceName"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>描述</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.databaseDesc}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaHDFSDataObj.databaseDesc"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP地址</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.ip}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaHDFSDataObj.ip"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>路径</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.hdfsPath}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaHDFSDataObj.hdfsPath"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>端口号</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.port}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text"  ng-model="metaHDFSDataObj.port"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户名</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.username}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaHDFSDataObj.username"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>用户组</strong></td>
+                        <td ng-if="isDataBaseModify==false">
+                            {{metaHDFSDataObj.userGroup}}
+                        </td>
+                        <td ng-if="isDataBaseModify==true">
+                            <input type="text" ng-model="metaHDFSDataObj.userGroup"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--HDFS信息展示结束-->  
+            <!--新增主题类别开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='主题类别'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton">
+                                <span>新建主题类别</span>
+                            </button>
+                        </div>
+                        <table class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="25%"><strong>类别名称</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.name"/>
+                                    <span class="help-block" ng-if="datathemeNameShow" style="color:red;">类别名称</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddThemeData(addMetaDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增主题类别结束-->
+
+            <!--新增数据源开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='数据源'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton" ng-click="changeType(1)">
+                                <span>新建数据源(库)</span>
+                            </button>
+                        </div>
+                        <table class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="25%"><strong>数据源(库)名称</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.datasourceName"/>
+                                    <span class="help-block" ng-if="datasourceNameShow" style="color:red;">请输入数据源(库)名称</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><strong>数据源(库)别名</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                                    <span class="help-block" ng-if="databaseDescShow" style="color:red;">请输入数据源(库)别名</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><strong>实例名称</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.instance"/>
+                                    <span class="help-block" ng-if="instanceShow" style="color:red;">请输入实例名称</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>数据库类型</strong></td>
+                                <td>
+                                    <select style="width:65%;margin-top:0px;float:none;border:1px solid #d9e0e7;margin-left:0px;" ng-model="addMetaDataObj.type">
+                                        <option value = "oracle">oracle</option>
+                                        <option value = "mysql">mysql</option>
+                                        <option value = "sqlserver">sqlserver</option>
+                                        <option value = "hive">hive</option>
+                                    </select>
+                                    <!--<input style="width:65%" type="text"  ng-model="addMetaDataObj.type"/>-->
+                                    <span class="help-block" ng-if="typeShow" style="color:red;">请输入数据库类型</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><strong>描述</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>IP地址</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.ip"/>
+                                    <span class="help-block" ng-if="ipShow" style="color:red;">请输入IP地址</span>
+                                    <span class="help-block" ng-if="isIpShow" style="color:red;">请输入正确的IP地址</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>端口号</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text"  ng-model="addMetaDataObj.port"/>
+                                    <span class="help-block" ng-if="portShow" style="color:red;">请输入端口号</span>
+                                    <span class="help-block" ng-if="isPortShow" style="color:red;">请输入正确的端口号</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>用户名</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.username"/>
+                                    <span class="help-block" ng-if="usernameShow" style="color:red;">请输入用户名</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>密码</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.password"/>
+                                    <span class="help-block" ng-if="passwordShow" style="color:red;">请输入密码</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddDataBase(addMetaDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增数据源结束-->
+
+            <!--新增字段开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='字段'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton" ng-click="changeType(1)">
+                                <span>新建字段</span>
+                            </button>
+                        </div>
+                        <table id="jobTaskFiled" class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="10%"><strong>选择</strong></td>
+                                <td><strong>字段名称</strong></td>
+                                <td><strong>显示状态</strong></td>
+                                <td><strong>中文名称</strong></td>
+                            </tr>
+                            <tr class="tableTr" ng-repeat="flied in metafiledName">
+                                <td width="10%"><input type="checkbox" name="{{addMetafiledNameObj}}" value="{{flied.columnName}}" checked="checked"></td>
+                                <td>{{flied.columnName}}</td>
+                                <td><span><input type="radio" ng-checked="'true'" name="radioBox{{$index}}" value="0"/> 显示&nbsp;&nbsp;&nbsp;<input type="radio" name="radioBox{{$index}}" value="1"/> 隐藏&nbsp;&nbsp;&nbsp;<input type="radio" name="radioBox{{$index}}" value="2"/> 脱敏</span></td>
+                                <td width="75%">
+                                    <input type="text" ng-model="addMetafiledNameObj"  ng-init="addMetafiledNameObj=flied.comment"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton"  ng-click="saveAddFiledData(addMetafiledNameObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增字段结束-->
+
+            <!--新增FTP服务器开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='FTP服务器'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton" ng-click="changeType(1)">
+                                <span>新建FTP服务器</span>
+                            </button>
+                        </div>
+                        <table class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="25%"><strong>FTP服务名称</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.datasourceName"/>
+                                    <span class="help-block" ng-if="datasourceNameShow" style="color:red;">请输入FTP服务名称</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><strong>描述</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>IP地址</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.ip"/>
+                                    <span class="help-block" ng-if="ipShow" style="color:red;">请输入IP地址</span>
+                                    <span class="help-block" ng-if="isIpShow" style="color:red;">请输入正确的IP地址</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>路径</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.ftpPath"/>
+                                    <span class="help-block" ng-if="ftpPathShow" style="color:red;">请输入路径</span>
+                                    <span class="help-block" ng-if="isFtpPathShow" style="color:red;">请输入正确的路径</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>端口号</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text"  ng-model="addMetaDataObj.port"/>
+                                    <span class="help-block" ng-if="portShow" style="color:red;">请输入端口号</span>
+                                    <span class="help-block" ng-if="isPortShow" style="color:red;">请输入正确的端口号</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>用户名</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.username"/>
+                                    <span class="help-block" ng-if="usernameShow" style="color:red;">请输入用户名</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>密码</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.password"/>
+                                    <span class="help-block" ng-if="passwordShow" style="color:red;">请输入密码</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddFTPData(addMetaDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增FTP服务器结束-->
+
+            <!--新增FTP文件开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='FTP文件夹'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton">
+                                <span>新增FTP文件</span>
+                            </button>
+                        </div>
+                        <table id="jobTaskFTPwjj" class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="10%"><strong>选择</strong></td>
+                                <td><strong>FTP文件夹名称</strong></td>
+                                <td><strong>中文名称</strong></td>
+                            </tr>
+                            <tr class="tableTr" ng-repeat="table in metaFTPName">
+                                <td width="10%"><input type="checkbox" name="{{addMetaFTPWJDataObj}}" value="{{table.name}}"></td>
+                                <td>{{table.name}}</td>
+                                <td width="75%">
+                                    <input type="text" ng-model="addMetaFTPWJDataObj"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton"  ng-click="saveAddFTPWJData(addMetaFTPWJDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增FTP文件结束-->
+
+            <!--新增FTP sheet开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='sheet'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton">
+                                <span>新增sheet</span>
+                            </button>
+                        </div>
+                        <table id="jobTaskFTPSheet" class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="10%"><strong>选择</strong></td>
+                                <td><strong>sheet名称</strong></td>
+                                <td><strong>中文名称</strong></td>
+                            </tr>
+                            <tr class="tableTr" ng-repeat="table in metaFTPSheet">
+                                <td width="10%"><input type="checkbox" name="{{addMetaFTPsheetDataObj}}" value="{{table}}"></td>
+                                <td>{{table}}</td>
+                                <td width="75%">
+                                    <input type="text" ng-model="addMetaFTPsheetDataObj"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton"  ng-click="saveAddFTPsheetData(addMetaFTPsheetDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增FTP sheet结束-->
+
+            <!--新增Excel 字段开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='ExcelZD'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton">
+                                <span>新增Excel字段</span>
+                            </button>
+                        </div>
+                        <table id="jobTaskExcelZD" class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="10%"><strong>选择</strong></td>
+                                <td><strong>Excel字段名称</strong></td>
+                                <td><strong>中文名称</strong></td>
+                            </tr>
+                            <tr class="tableTr" ng-repeat="table in metaExcelZD">
+                                <td width="10%"><input type="checkbox" name="{{addMetaExcelZDDataObj}}" value="{{table}}"></td>
+                                <td>{{table}}</td>
+                                <td width="75%">
+                                    <input type="text" ng-model="addMetaExcelZDDataObj"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddExcelZDData(addMetaExcelZDDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增Excel 字段结束-->
+            
+            <!--新增HDFS服务器开始-->
+            <div class="jobTaskexchangeDetail" ng-if="isDataBase=='HDFS服务器'" style="background-color:#ffffff">
+                <div class="bigDiv"  style="border: 0;margin: 0;">
+                    <div class="jobTaskexchangeDetail" style="margin-top: 58px;">
+                        <div class="bigSearchDiv" style="clear: both">
+                            <button class="bigBlue_botton" ng-click="changeType(1)">
+                                <span>新建HDFS服务器</span>
+                            </button>
+                        </div>
+                        <table class="jobTaskTableD" style="clear: both">
+                            <tr>
+                                <td width="25%"><strong>HDFS服务名称</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.datasourceName"/>
+                                    <span class="help-block" ng-if="datasourceNameShow" style="color:red;">请输入HDFS服务名称</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"><strong>描述</strong></td>
+                                <td width="75%">
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.databaseDesc"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>IP地址</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.ip"/>
+                                    <span class="help-block" ng-if="ipShow" style="color:red;">请输入IP地址</span>
+                                    <span class="help-block" ng-if="isIpShow" style="color:red;">请输入正确的IP地址</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>路径</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.hdfsPath"/>
+                                    <span class="help-block" ng-if="hdfsPathShow" style="color:red;">请输入路径</span>
+                                    <span class="help-block" ng-if="isHdfsPathShow" style="color:red;">请输入正确的路径</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>端口号</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text"  ng-model="addMetaDataObj.port"/>
+                                    <span class="help-block" ng-if="portShow" style="color:red;">请输入端口号</span>
+                                    <span class="help-block" ng-if="isPortShow" style="color:red;">请输入正确的端口号</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>用户名</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.username"/>
+                                    <span class="help-block" ng-if="usernameShow" style="color:red;">请输入用户名</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>用户组</strong></td>
+                                <td >
+                                    <input style="width:65%" type="text" ng-model="addMetaDataObj.userGroup"/>
+                                    <span class="help-block" ng-if="userGroupShow" style="color:red;">请输入用户组</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+                <button class="smallGreen_botton" ng-click="saveAddHDFSData(addMetaDataObj)">保存</button>
+                <button class="smallGrey_botton" style="margin-left:20px;margin-bottom:10px;" ng-click="cancelData()">取消</button>
+            </div>
+            <!--新增HDFS服务器结束-->
+
+        </div>
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //新增按钮的动画
+        $(document).on("click","#firstpane p.menu_head",function(){
+            $(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("fast");
+        });
+        $(document).delegate("#firstpane div.menu_body a","click",function(){
+            $("#firstpane div.menu_body").slideUp('fast');
+        })
+    });
+</script>
